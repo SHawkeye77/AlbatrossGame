@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://h473tci6du82"]
+
+[ext_resource type="Texture2D" uid="uid://dhhydd8sbb8f0" path="res://Art/albatross.png" id="1_2i7b0"]
+[ext_resource type="Script" path="res://Friendlies/albatross.gd" id="1_ihtpp"]
+
+[node name="Albatross" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_ihtpp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2i7b0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-1, -5, 1, -5, 1, -3, 2, -3, 2, 0, 6, 0, 6, -1, 7, -1, 7, 1, 6, 1, 6, 2, 2, 2, 2, 3, 1, 3, 1, 4, 2, 4, 2, 5, -2, 5, -2, 4, -1, 4, -1, 3, -2, 3, -2, 2, -6, 2, -6, 1, -7, 1, -7, -1, -6, -1, -6, 0, -2, 0, -2, -3, -1, -3)

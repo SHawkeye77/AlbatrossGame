@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbaei5kmj0tn7"]
+
+[ext_resource type="Script" path="res://Screens/world.gd" id="1_xi0mc"]
+[ext_resource type="Texture2D" uid="uid://bpvgkqeukgr1d" path="res://Art/skyBlue.png" id="2_kcpj2"]
+[ext_resource type="PackedScene" uid="uid://h473tci6du82" path="res://Friendlies/albatross.tscn" id="3_pt3g6"]
+[ext_resource type="PackedScene" uid="uid://c5ljmabuq7k1" path="res://Utilities/lightning_spawner.tscn" id="4_o3cxg"]
+[ext_resource type="PackedScene" uid="uid://2ds3m0gmq4e5" path="res://Utilities/fish_spawner.tscn" id="5_lcwr8"]
+[ext_resource type="PackedScene" uid="uid://2l5pkn0kvuu7" path="res://Utilities/airplane_spawner.tscn" id="6_gu3vy"]
+[ext_resource type="AudioStream" uid="uid://wymbgyo4bb0j" path="res://Music/alien_date_theme.mp3" id="7_2w51y"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_xi0mc")
+
+[node name="Backgroud" type="Sprite2D" parent="."]
+position = Vector2(589, 323)
+texture = ExtResource("2_kcpj2")
+region_enabled = true
+region_rect = Rect2(-236.38, -2013.02, 1564.57, 975.958)
+
+[node name="Albatross" parent="." instance=ExtResource("3_pt3g6")]
+unique_name_in_owner = true
+position = Vector2(90, 300)
+
+[node name="LightningSpawner" parent="." instance=ExtResource("4_o3cxg")]
+unique_name_in_owner = true
+
+[node name="FishSpawner" parent="." instance=ExtResource("5_lcwr8")]
+
+[node name="AirplaneSpawner" parent="." instance=ExtResource("6_gu3vy")]
+unique_name_in_owner = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("7_2w51y")
+volume_db = -10.0
+autoplay = true
+
+[node name="ClockTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="DifficultyIncreaseTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="GUILayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="GUILayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="lblTimer" type="Label" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 131.0
+offset_right = 180.0
+offset_bottom = 26.0
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lblScore" type="Label" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 26.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="ClockTimer" to="." method="_on_clock_timer_timeout"]
+[connection signal="timeout" from="DifficultyIncreaseTimer" to="." method="_on_difficulty_increase_timer_timeout"]

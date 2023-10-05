@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://s3rxhtx5xayv"]
+
+[ext_resource type="Script" path="res://Screens/start_screen.gd" id="1_vaby1"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vaby1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 195.0
+offset_bottom = 337.0
+color = Color(0, 0.764706, 0.054902, 1)
+
+[node name="LabelGameName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 173.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 20
+text = "Alby's Adventure"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelCredit" type="Label" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 52.0
+offset_right = 172.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 10
+text = "Coded by SHawkeye77"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelIntroduction" type="Label" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 121.0
+offset_right = 168.0
+offset_bottom = 221.0
+theme_override_font_sizes/font_size = 12
+text = "Alby the albatross is making her way across the Pacific Ocean. Collect fish and avoid obstacles to gain points!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 245.0
+offset_right = 125.0
+offset_bottom = 270.0
+text = "Play"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

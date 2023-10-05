@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0cwnqecmcpke"]
+
+[ext_resource type="Texture2D" uid="uid://de08r7raewf01" path="res://Art/exclamationAlbatross.png" id="1_fo5qg"]
+[ext_resource type="Script" path="res://Enemies/exclamation.gd" id="1_fpc66"]
+
+[node name="Exclamation" type="CharacterBody2D"]
+script = ExtResource("1_fpc66")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fo5qg")

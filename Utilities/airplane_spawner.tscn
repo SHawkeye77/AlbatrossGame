@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://2l5pkn0kvuu7"]
+
+[ext_resource type="Script" path="res://Utilities/airplane_spawner.gd" id="1_sxw4n"]
+
+[node name="AirplaneSpawner" type="Node2D"]
+script = ExtResource("1_sxw4n")
+
+[node name="AirplaneSpawnFrequencyTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="AirplaneSpawnFrequencyTimer" to="." method="_on_airplane_spawn_frequency_timer_timeout"]

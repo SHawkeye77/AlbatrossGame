@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cah6f478jjwbx"]
+
+[ext_resource type="Script" path="res://Enemies/lightning.gd" id="1_rhngr"]
+[ext_resource type="Texture2D" uid="uid://ektqx8p3ey3d" path="res://Art/lightningBolt.png" id="1_u6efh"]
+
+[node name="Lightning" type="CharacterBody2D"]
+script = ExtResource("1_rhngr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_u6efh")
+
+[node name="LifetimeTimer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-4, -8, 4, -8, 4, -5, 3, -5, 3, -3, 7, -3, 7, 2, 6, 2, 6, 4, 5, 4, 5, 6, 4, 6, 4, 8, -5, 8, -5, 5, -4, 5, -4, 4, -3, 4, -3, 2, -7, 2, -7, -2, -6, -2, -6, -4, -5, -4, -5, -6, -4, -6)
+
+[connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
